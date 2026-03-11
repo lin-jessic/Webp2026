@@ -5,6 +5,10 @@ __pycache__/
 *.pyd
 *.log
 
+# Virtualenv
+#venv/
+py3.12/
+.env/
 
 # Django
 db.sqlite3
