@@ -4,6 +4,8 @@ __pycache__/
 *.pyo
 *.pyd
 *.log
+!debug.log
+!db.sqlite3
 
 # Virtualenv
 #venv/
