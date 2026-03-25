@@ -2,39 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hw2</title>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 30px;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        .container {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .left-panel {
-            width: 60%;
-        }
-
-        .top-link {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .top-link a {
-            color: #d62d20;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
         table {
+            font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
@@ -66,159 +38,177 @@
             cursor: pointer;
         }
 
-        .clickable-course {
+        .course-link {
             color: black;
+            font-weight: normal;
+            text-decoration: none;
             cursor: pointer;
-            text-decoration: underline;
-            font-weight: bold;
         }
 
-        .popover {
-            width: 35%;
-            min-height: 420px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 15px;
-            background-color: #fafafa;
+        .modal {
             display: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .popover h2 {
-            font-size: 22px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .popover table {
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
             width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            height: 85vh;
+            margin: 30px auto;
             background-color: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .popover td {
-            padding: 8px;
-            vertical-align: top;
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+            font-family: Arial, Helvetica, sans-serif;
+            flex-shrink: 0;
         }
 
-        .label {
-            width: 35%;
+        .modal-title {
+            font-size: 18px;
             font-weight: bold;
-            background-color: #f3f3f3;
         }
 
-        .highlight {
-            color: #d62d20;
+        .close-btn {
+            font-size: 24px;
             font-weight: bold;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        #courseFrame {
+            width: 100%;
+            flex: 1;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div class="top-link">
-        https://catalog.cgu.edu.tw/coursedata?sectionid=<a href="#" onclick="showCourseInfo(); return false;">A2337</a>
-    </div>
+    <h1>資工選課表</h1>
 
-    <div class="container">
-        <div class="left-panel">
-            <h1>Table + Button</h1>
-            <h1>資工選課表</h1>
+    <table id="csie">
+        <tr>
+            <th>開課單位</th>
+            <th>課程名稱</th>
+            <th>授課教師</th>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('物件導向軟體設計', 'https://catalog.cgu.edu.tw/coursedata?sectionid=A2337')">
+                    物件導向軟體設計
+                </span>
+            </td>
+            <td id="teacher1">黃崇源</td>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('計算機網路實驗', 'https://catalog.cgu.edu.tw/coursedata?sectionid=61602')">
+                    計算機網路實驗
+                </span>
+            </td>
+            <td>李春良</td>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('作業系統實務', 'https://catalog.cgu.edu.tw/coursedata?sectionid=A2338')">
+                    作業系統實務
+                </span>
+            </td>
+            <td>張哲維</td>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('生物統計', 'https://catalog.cgu.edu.tw/coursedata?sectionid=71796')">
+                    生物統計
+                </span>
+            </td>
+            <td>陳光武</td>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('通訊系統', 'https://catalog.cgu.edu.tw/coursedata?sectionid=A2339')">
+                    通訊系統
+                </span>
+            </td>
+            <td>陳仁暉</td>
+        </tr>
+        <tr>
+            <td>資工系</td>
+            <td>
+                <span class="course-link"
+                      onclick="openPopover('軟硬體專題(2)', 'https://catalog.cgu.edu.tw/coursedata?sectionid=56665')">
+                    軟硬體專題(2)
+                </span>
+            </td>
+            <td>魏志達</td>
+        </tr>
+    </table>
 
-            <table id="csie">
-                <tr>
-                    <th>開課單位</th>
-                    <th>課程名稱</th>
-                    <th>授課教師</th>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>
-                        <span class="clickable-course" onclick="showCourseInfo()">物件導向軟體設計</span>
-                    </td>
-                    <td id="teacher1">黃崇源</td>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>計算機網路實驗</td>
-                    <td>李春良</td>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>作業系統實務</td>
-                    <td>張哲維</td>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>生物統計</td>
-                    <td>陳光武</td>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>通訊系統</td>
-                    <td>陳仁暉</td>
-                </tr>
-                <tr>
-                    <td>資工系</td>
-                    <td>軟硬體專題(2)</td>
-                    <td>魏志達</td>
-                </tr>
-            </table>
+    <button onclick="changeResult()">Change</button>
 
-            <button onclick="changeResult()">Change</button>
-        </div>
-
-        <div class="popover" id="popoverBox">
-            <h2>課程詳細資料</h2>
-            <table>
-                <tr>
-                    <td class="label">學年/學期</td>
-                    <td>114/2</td>
-                </tr>
-                <tr>
-                    <td class="label">授課教師</td>
-                    <td>黃崇源</td>
-                </tr>
-                <tr>
-                    <td class="label">開課單位</td>
-                    <td>資工系</td>
-                </tr>
-                <tr>
-                    <td class="label">年級-班別</td>
-                    <td>3-甲</td>
-                </tr>
-                <tr>
-                    <td class="label">科目代號(學分)</td>
-                    <td>IT3004(3)</td>
-                </tr>
-                <tr>
-                    <td class="label">課程名稱</td>
-                    <td>物件導向軟體設計</td>
-                </tr>
-                <tr>
-                    <td class="label">開課序號</td>
-                    <td class="highlight">A2337</td>
-                </tr>
-                <tr>
-                    <td class="label">修課學生</td>
-                    <td>本校: 64人；外校: 0人</td>
-                </tr>
-                <tr>
-                    <td class="label">人數限制</td>
-                    <td>10-60</td>
-                </tr>
-                <tr>
-                    <td class="label">上課時間地點</td>
-                    <td>星期五 2 (09:10) - 4 (12:00)<br>資工系電腦教室2</td>
-                </tr>
-            </table>
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">課程詳細資料</div>
+                <span class="close-btn" onclick="closePopover()">&times;</span>
+            </div>
+            <iframe id="courseFrame" src=""></iframe>
         </div>
     </div>
 
     <script>
         function changeResult() {
-            document.getElementById("teacher1").innerHTML = "李春良";
+            var myTable = document.getElementById("csie");
+            myTable.rows[1].cells[2].innerHTML = "李春良";
         }
 
-        function showCourseInfo() {
-            document.getElementById("popoverBox").style.display = "block";
+        function openPopover(courseName, url) {
+            document.getElementById("modalTitle").innerHTML = courseName + " - 課程詳細資料";
+            document.getElementById("courseFrame").src = url;
+            document.getElementById("courseModal").style.display = "block";
+        }
+
+        function closePopover() {
+            document.getElementById("courseModal").style.display = "none";
+            document.getElementById("courseFrame").src = "";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("courseModal");
+            if (event.target == modal) {
+                closePopover();
+            }
         }
     </script>
 </body>
