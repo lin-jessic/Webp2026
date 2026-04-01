@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ex4</title>
+</head>
+<body>
+    <p>按 F12（若筆電需要可搭配 Fn）開啟瀏覽器開發者工具，並切換到 Console 就會有聖誕樹印出來。</p>
+
+    <script>
+        function tree(n) {
+            printTreeTop(n);
+            printTreeBottom(n);
+        }
+
+        function printTreeTop(n) {
+            for (var i = 0; i < n; i++) {
+                var spaces = repeatchar(n - 1 - i, ' ');
+                var stars = repeatchar(2 * i + 1, '*');
+                console.log('"' + spaces + stars + '"');
+            }
+        }
+
+        function printTreeBottom(n) {
+            for (var i = 0; i < n - 1; i++) {
+                var spaces = repeatchar(n - 1, ' ');
+                console.log('"' + spaces + '*' + '"');
+            }
+        }
+
+        function repeatchar(n, arg_char) {
+            var result = '';
+            for (var i = 0; i < n; i++) {
+                result += arg_char;
+            }
+            return result;
+        }
+
+        tree(4);
+    </script>
+</body>
+</html>
