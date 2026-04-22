@@ -1,5 +1,5 @@
 var imglist_Url =
-'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=ca370d51a054836007519a00ff4ce59e&per_page=30&format=json&nojsoncallback=1';
+'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=ca370d51a054836007519a00ff4ce59e&per_page=10&format=json&nojsoncallback=1';
 
 function getimg() {
     var gal = document.getElementById("gallery");
