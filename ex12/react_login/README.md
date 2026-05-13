@@ -1,8 +1,8 @@
-# Lab12 React Login
+# ex12 React Login
 
 Project folder:
 
-Lab12/react_login
+ex12/react_login
 
 Run:
 
