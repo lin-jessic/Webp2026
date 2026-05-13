@@ -1,0 +1,71 @@
+.App {
+  min-height: 100vh;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.login-image {
+  flex: 7;
+  background-image: url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-paper {
+  flex: 5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  margin-left: 32px;
+  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-avatar {
+  margin: 8px;
+  background-color: #e91e63 !important;
+}
+
+.login-form {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.login-submit {
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  background-color: #3f51b5 !important;
+}
+
+.login-submit:hover {
+  background-color: #303f9f !important;
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .login-image {
+    display: none;
+  }
+
+  .login-paper {
+    flex: 1;
+  }
+}
