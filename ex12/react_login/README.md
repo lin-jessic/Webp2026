@@ -1,3 +1,19 @@
+# Lab12 React Login
+
+Project folder:
+
+Lab12/react_login
+
+Run:
+
+cd react_login
+npm install
+npm start
+
+Note:
+node_modules and build are not uploaded.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
