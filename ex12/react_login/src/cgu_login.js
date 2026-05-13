@@ -54,7 +54,7 @@ function CGU_Login() {
           md={7}
           sx={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80)',
+              'url(https://p3-pc-sign.douyinpic.com/tos-cn-i-0813c000-ce/osIaVM10C9rqAyANiiDPbIEmyBagAjAB4APMB~tplv-dy-aweme-images:q75.webp?biz_tag=aweme_images&from=327834062&lk3s=138a59ce&s=PackSourceEnum_SEARCH&sc=image&se=false&x-expires=1781132400&x-signature=qtJTqprD5D%2F7fGPnmBjIpmay1SQ%3D)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
