@@ -124,6 +124,23 @@ function CGU_DataGrid() {
           }}
           disableRowSelectionOnClick
           getRowHeight={() => 'auto'}
+          sx={{
+            '& .MuiDataGrid-columnHeaders': {
+              backgroundColor: '#04AA6D',
+              color: 'white',
+              fontWeight: 'bold',
+            },
+            '& .MuiDataGrid-columnHeader': {
+              backgroundColor: '#04AA6D',
+              color: 'white',
+            },
+            '& .MuiDataGrid-columnHeaderTitle': {
+              fontWeight: 'bold',
+            },
+            '& .MuiDataGrid-row:nth-of-type(even)': {
+              backgroundColor: '#f2f2f2',
+            },
+          }}
         />
       </Box>
     </Box>
