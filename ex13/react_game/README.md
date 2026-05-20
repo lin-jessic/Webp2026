@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-要先進入reeact_game資料夾才可以執行下面的指令
+(要先進入reeact_game資料夾才可以執行下面的指令)
 ### `npm start`
 
 Runs the app in the development mode.\
